@@ -3,10 +3,10 @@
   - stat: path=/usr/sbin/zabbix_agentd
     register: zabbix_agent_installed
 
-  - include: install.yaml
+  - import_tasks: install.yaml
     when: not zabbix_agent_installed.stat.exists
 
-  - include: configure.yaml
+  - import_tasks: configure.yaml
 
   - name: Start Zabbix agent service
     service: name=zabbix-agent state=started enabled=yes

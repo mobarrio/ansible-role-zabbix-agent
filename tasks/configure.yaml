@@ -3,9 +3,10 @@
     with_items:
       - { var: "ServerActive", value: "{{zabbix_agent_server}}:{{zabbix_agent_server_port}}"}
       - { var: "Hostname", value: "{{zabbix_agent_hostname_prefix}}{{ansible_hostname}}"}
-      - { var: "StartAgents", value: "0"}
+      - { var: "StartAgents", value: "{{zabbix_agent_start_agents}}"}
       - { var: "HostMetadata", value: "{{ zabbix_agent_metadata }}"}
-      - { var: "RefreshActiveChecks", value: "60"}
+      - { var: "RefreshActiveChecks", value: "{{zabbix_agent_refresh_active_checks}}"}
+      - { var: "DebugLevel", value: "{{zabbix_agent_debug_level}}"}
     notify: restart zabbix-agent
      
   - lineinfile: dest=/etc/zabbix/zabbix_agentd.conf regexp="{{ item }}=" state=absent

@@ -1,9 +1,13 @@
 ---
 # Zabbix server to connect to
-zabbix_agent_server: localhost
+zabbix_agent_server: 10.151.0.69
 # Zabbix port in the server to connect to
 zabbix_agent_server_port: 10051
 # HostMetadata value in the agent config
 zabbix_agent_metadata: system.uname
 # Prefix to be added to the Hostname value in the agent config
 zabbix_agent_hostname_prefix: ""
+#### Agregado por GLB 2018-01-24
+zabbix_agent_start_agents: 0
+zabbix_agent_refresh_active_checks: 60
+zabbix_agent_debug_level: 0
